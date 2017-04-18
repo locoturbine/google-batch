@@ -133,9 +133,10 @@ function GoogleBatch(){
 				}).map(function(item) {
 					return item.body.error;
 				});
-				if(errors.length !== 0) {
-					return callback(new Error(errors.toString()), responses, errors);
-				}
+                if(errors.length !== 0) {
+                    //return callback(new Error(errors.toString()), responses, errors);
+                    console.log("Batch API call responded with " + errors.length + " errors: " + errors.toString());
+                }
 				callback(null, responses, null);
 	    });
 
